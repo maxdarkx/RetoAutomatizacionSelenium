@@ -19,7 +19,7 @@ public class ContactFormPage extends CommonActionOnPages {
     private ContactFormModel contactFormModel;
     private static final String MODEL_NULL_MESSAGE = "El modelo del formulario es nulo";
 
-    //for inicialization of webpage
+    // for web page inicialization
 
     @FindBy(xpath = "//*[@id=\"headerPanel\"]/ul[2]/li[3]/a")
     private WebElement contactUs;
@@ -63,11 +63,11 @@ public class ContactFormPage extends CommonActionOnPages {
 
     public void fillContactFormModel() throws InterruptedException
     {
-          scrollOn(contactUs);
-          clickOn(contactUs);
+        scrollOn(contactUs);
+        clickOn(contactUs);
 
-          scrollOn(name);
-          typeOn(name, contactFormModel.getName());
+        scrollOn(name);
+        typeOn(name, contactFormModel.getName());
 
         scrollOn(email);
         typeOn(email, contactFormModel.getEmail());

@@ -193,16 +193,3 @@ public class ContactFormStepDefinition extends WebUI {
         quitDriver();
     }
 }
-
-/*    @Given("que el usuario desea enviar un mensaje")
-    public void que_el_usuario_desea_enviar_un_mensaje() {
-        try {
-
-        }
-        catch (Exception e)
-        {
-            quitDriver();
-            Assertions.fail(e.getMessage(), e);
-            LOGGER.error(e.getMessage(),e);
-        }
-    }*/
