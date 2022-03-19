@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ContactFormStepDefinition extends WebUI {
 
-    private static final Logger LOGGER = Logger.getLogger(ContactFormPage.class);
+    private static final Logger LOGGER = Logger.getLogger(ContactFormStepDefinition.class);
     private ContactFormModel contactFormModel;
     private ContactFormPage contactFormPage;
 

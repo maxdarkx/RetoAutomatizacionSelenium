@@ -22,7 +22,10 @@ dependencies {
 
     implementation 'io.cucumber:cucumber-junit:6.11.0'
     implementation 'io.cucumber:cucumber-java:6.11.0'
+
+    implementation 'com.github.javafaker:javafaker:1.0.2'
 }
+
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8

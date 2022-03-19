@@ -19,7 +19,7 @@ public class RegisterFormPage extends CommonActionOnPages {
 
     // for web page inicialization
     @CacheLookup
-    @FindBy(xpath = "//div[@id='loginPanel']/p[2]/a")
+    @FindBy(xpath ="//div[@id='loginPanel']/p[2]/a")
     private WebElement registerLinkPage;
 
     @CacheLookup
