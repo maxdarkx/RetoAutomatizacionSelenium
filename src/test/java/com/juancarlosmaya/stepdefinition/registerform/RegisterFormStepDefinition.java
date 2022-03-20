@@ -22,6 +22,7 @@ public class RegisterFormStepDefinition extends WebUI {
     @Given("que el usuario desea ingresar a la plataforma")
     public void que_el_usuario_desea_ingresar_a_la_plataforma() {
         try {
+            registerFormUser = new RegisterFormUser();
             setUpLog4j2();
             setUpWebDriver();
             generalSetUp();
