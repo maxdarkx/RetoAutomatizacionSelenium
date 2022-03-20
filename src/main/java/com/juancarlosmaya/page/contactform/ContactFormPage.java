@@ -21,6 +21,7 @@ public class ContactFormPage extends CommonActionOnPages {
 
     // for web page inicialization
 
+    @CacheLookup
     @FindBy(xpath = "//*[@id=\"headerPanel\"]/ul[2]/li[3]/a")
     private WebElement contactUs;
 
@@ -46,8 +47,13 @@ public class ContactFormPage extends CommonActionOnPages {
     private WebElement submit;
 
     //for assertions
-    private final By returnCustomer = By.xpath("//*[@id=\"rightPanel\"]/p[1]");
-    private final By returnMessage = By.xpath("//*[@id=\"rightPanel\"]/p[2]");
+    @CacheLookup
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/p[1]")
+    private WebElement returnCustomer;
+
+    @CacheLookup
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/p[2]")
+    private WebElement returnMessage;
 
     public ContactFormPage(WebDriver driver, ContactFormModel contactFormModel) {
         super(driver);

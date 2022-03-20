@@ -1,0 +1,78 @@
+package com.juancarlosmaya.page.loginform;
+
+import com.juancarlosmaya.model.loginform.LoginFormModel;
+import com.juancarlosmaya.page.common.CommonActionOnPages;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LoginFormPage extends CommonActionOnPages {
+    private static final Logger LOGGER = Logger.getLogger(LoginFormPage.class);
+    private LoginFormModel loginFormModel;
+    private static final String MODEL_NULL_MESSAGE = "El modelo del formulario es nulo";
+
+    //For web page inicialization
+
+    @CacheLookup
+    @FindBy(xpath="//input[@name='username']")
+    private WebElement userName;
+
+    @CacheLookup
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement password;
+
+    @CacheLookup
+    @FindBy(xpath = "//input[@value='Log In']")
+    private WebElement logIn;
+
+    @CacheLookup
+    @FindBy(xpath = "//*[@id=\'leftPanel\']/ul/li[8]/a")
+    private WebElement logOut;
+
+    @CacheLookup
+    @FindBy(xpath = "//*[@id='rightPanel']/div/div/h1")
+    private WebElement accountOverview;
+
+
+
+    public LoginFormPage(WebDriver driver, LoginFormModel loginFormModel) {
+        super(driver);
+        pageFactoryInitElement(driver, this);
+        this.loginFormModel = loginFormModel;
+    }
+
+    public LoginFormPage(WebDriver driver, int seconds, boolean explicitTime, LoginFormModel loginFormModel) {
+        super(driver, seconds, explicitTime);
+        pageFactoryInitElement(driver, this);
+        this.loginFormModel = loginFormModel;
+    }
+
+    public void fillLoginFormModel() throws  InterruptedException
+    {
+        scrollOn(userName);
+        typeOn(userName, loginFormModel.getLogin());
+
+        scrollOn(password);
+        typeOn(password, loginFormModel.getPassword());
+
+        doSubmit(logIn);
+
+        scrollOn(logOut);
+
+
+    }
+    public void logOutFormModel() throws InterruptedException
+    {
+        clickOn(logOut);
+    }
+
+    public String isLoginFormDone()
+    {
+        return getText(accountOverview).trim();
+    }
+}

@@ -19,6 +19,12 @@ public class ContactFormStepDefinition extends WebUI {
     private ContactFormModel contactFormModel;
     private ContactFormPage contactFormPage;
 
+    private String forContactSubmittedForm(){
+        String submitedFormResult = "Thank you "+contactFormModel.getName()+" ";
+        return submitedFormResult.concat("A Customer Care Representative will be contacting you.");
+    }
+
+
     //escenario feliz
     @Given("que el usuario desea enviar un mensaje")
     public void que_el_usuario_desea_enviar_un_mensaje() {
@@ -32,6 +38,13 @@ public class ContactFormStepDefinition extends WebUI {
             contactFormModel.setEmail("jose.m@wetmail.com");
             contactFormModel.setPhone("3012905482");
             contactFormModel.setMessage("Please block my account");
+
+            LOGGER.info ("SCENARIO : El usuario ingresa en el sistema un nombre, telefono, email y mensaje validos");
+            LOGGER.info("GIVEN: que el usuario desea enviar un mensaje "+contactFormModel.getName()+", "+
+                    contactFormModel.getEmail()+", "+
+                    contactFormModel.getPhone()+", "+
+                    contactFormModel.getMessage()+", ");
+
         }
         catch (Exception e)
         {
@@ -46,6 +59,7 @@ public class ContactFormStepDefinition extends WebUI {
         try {
             contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
             contactFormPage.fillContactFormModel();
+            LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
         {
@@ -57,15 +71,13 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra el mensaje de contacto")
     public void se_muestra_el_mensaje_de_contacto() {
+        String result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
         Assertions.assertEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
         quitDriver();
     }
 
-    private String forContactSubmittedForm(){
-        String submitedFormResult = "Thank you "+contactFormModel.getName()+" ";
-        return submitedFormResult.concat("A Customer Care Representative will be contacting you.");
 
-    }
 
     //escenario email invalido
     @Given("que el usuario desea enviar un mensaje pero no desea ingresar su email")
@@ -80,6 +92,12 @@ public class ContactFormStepDefinition extends WebUI {
             contactFormModel.setEmail("jose.m");
             contactFormModel.setPhone("3012905482");
             contactFormModel.setMessage("Please block my account");
+
+            LOGGER.info ("SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su email");
+            LOGGER.info("GIVEN: que el usuario desea enviar un mensaje "+contactFormModel.getName()+", "+
+                    contactFormModel.getEmail()+", "+
+                    contactFormModel.getPhone()+", "+
+                    contactFormModel.getMessage()+", ");
         }
         catch (Exception e)
         {
@@ -94,6 +112,7 @@ public class ContactFormStepDefinition extends WebUI {
         try {
             contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
             contactFormPage.fillContactFormModel();
+            LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
         {
@@ -105,6 +124,8 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra un mensaje de error")
     public void se_muestra_un_mensaje_de_error() {
+        String result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
         Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
         quitDriver();
     }
@@ -122,6 +143,12 @@ public class ContactFormStepDefinition extends WebUI {
             contactFormModel.setEmail("jose.m@wetmail.com");
             contactFormModel.setPhone("holaMundo");
             contactFormModel.setMessage("Please block my account");
+
+            LOGGER.info ("SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su telefono");
+            LOGGER.info("GIVEN: que el usuario desea enviar un mensaje "+contactFormModel.getName()+", "+
+                    contactFormModel.getEmail()+", "+
+                    contactFormModel.getPhone()+", "+
+                    contactFormModel.getMessage()+", ");
         }
         catch (Exception e)
         {
@@ -136,6 +163,7 @@ public class ContactFormStepDefinition extends WebUI {
         try {
             contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
             contactFormPage.fillContactFormModel();
+            LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
         {
@@ -147,6 +175,8 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra un mensaje indicando telefono erroneo")
     public void se_muestra_un_mensaje_indicando_telefono_erroneo() {
+        String result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
         Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
         quitDriver();
     }
@@ -164,6 +194,12 @@ public class ContactFormStepDefinition extends WebUI {
             contactFormModel.setEmail("jose.m@wetmail.com");
             contactFormModel.setPhone("3012905482");
             contactFormModel.setMessage("Please block my account");
+
+            LOGGER.info ("SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su nombre");
+            LOGGER.info("GIVEN: que el usuario desea enviar un mensaje "+contactFormModel.getName()+", "+
+                    contactFormModel.getEmail()+", "+
+                    contactFormModel.getPhone()+", "+
+                    contactFormModel.getMessage()+", ");
         }
         catch (Exception e)
         {
@@ -178,6 +214,7 @@ public class ContactFormStepDefinition extends WebUI {
         try {
             contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
             contactFormPage.fillContactFormModel();
+            LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
         {
@@ -189,6 +226,8 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra un mensaje indicando nombre erroneo")
     public void se_muestra_un_mensaje_indicando_nombre_erroneo() {
+        String result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
         Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
         quitDriver();
     }
