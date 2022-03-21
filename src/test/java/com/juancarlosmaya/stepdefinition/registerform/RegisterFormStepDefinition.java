@@ -58,8 +58,8 @@ public class RegisterFormStepDefinition extends WebUI {
         }
     }
 
-    @When("el usuario ingresa en la plataforma su nombre, su apellido, su direccion, su ciudad de residencia, su Departamento su codigo zip, su numero de telefono, su identificacion y un nombre de usuario y contraseña")
-    public void el_usuario_ingresa_en_la_plataforma_su_nombre_su_apellido_su_direccion_su_ciudad_de_residencia_su_departamento_su_codigo_zip_su_numero_de_telefono_su_identificacion_y_un_nombre_de_usuario_y_contraseña() {
+    @When("el usuario ingresa en la plataforma su nombre, su apellido, su direccion, su ciudad de residencia, su Departamento su codigo zip, su numero de telefono, su identificacion y un nombre de usuario y contrasena")
+    public void el_usuario_ingresa_en_la_plataforma_su_nombre_su_apellido_su_direccion_su_ciudad_de_residencia_su_departamento_su_codigo_zip_su_numero_de_telefono_su_identificacion_y_un_nombre_de_usuario_y_contrasena() {
         try {
             Boolean isExplicitTime = false;
             registerFormPage = new RegisterFormPage(driver,10,isExplicitTime,registerFormModel);

@@ -12,7 +12,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.cucumber.messages.internal.com.google.common.base.StandardSystemProperty.USER_DIR;
 
 public class ContactFormPage extends CommonActionOnPages {
     private static final Logger LOGGER = Logger.getLogger(ContactFormPage.class);

@@ -31,8 +31,8 @@ public class LoginFormStepDefinition extends WebUI {
             generalSetUp();
 
             loginFormModel = new LoginFormModel();
-            loginFormModel.setLogin("juan.maya");
-            loginFormModel.setPassword("LZ4@3KfULcLFpss");
+            loginFormModel.setLogin("Theodore.maya");
+            loginFormModel.setPassword("1234567");
             LOGGER.info ("SCENARIO : El usuario ingresa en el sistema un nombre de usuario y contrasena validos");
             LOGGER.info("GIVEN: que el usuario desea ingresar a su cuenta "+
                     loginFormModel.getLogin()+", "+
