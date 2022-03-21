@@ -1,0 +1,40 @@
+2022-03-20 23:07:23 INFO  ContactFormStepDefinition:40 SCENARIO : El usuario ingresa en el sistema un nombre, telefono, email y mensaje validos
+2022-03-20 23:07:23 INFO  ContactFormStepDefinition:41 GIVEN: que el usuario desea enviar un mensaje Jose Martinez, jose.m@wetmail.com, 3012905482, Please block my account, 
+2022-03-20 23:07:24 INFO  ContactFormStepDefinition:66 WHEN: Se reciben los datos de contacto del usuario
+2022-03-20 23:07:24 INFO  ContactFormStepDefinition:79 THEN: Resultado = true Thank you Jose Martinez A Customer Care Representative will be contacting you. | Thank you Jose Martinez A Customer Care Representative will be contacting you.
+2022-03-20 23:07:26 INFO  ContactFormStepDefinition:100 SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su email
+2022-03-20 23:07:26 INFO  ContactFormStepDefinition:101 GIVEN: que el usuario desea enviar un mensaje Jose Martinez, jose.m, 3012905482, Please block my account, 
+2022-03-20 23:07:26 INFO  LoginFormStepDefinition:36 SCENARIO : El usuario ingresa en el sistema un nombre de usuario y contrasena validos
+2022-03-20 23:07:26 INFO  LoginFormStepDefinition:37 GIVEN: que el usuario desea ingresar a su cuenta juan.maya, LZ4@3KfULcLFpss, 
+2022-03-20 23:07:27 INFO  ContactFormStepDefinition:125 WHEN: Se reciben los datos de contacto del usuario
+2022-03-20 23:07:27 INFO  ContactFormStepDefinition:138 THEN: Resultado = false Thank you Jose Martinez A Customer Care Representative will be contacting you. | Thank you Jose Martinez A Customer Care Representative will be contacting you.
+2022-03-20 23:07:27 INFO  LoginFormStepDefinition:59 WHEN: el usuario ingresa en la plataforma un nombre de usuario y contrasena validos
+2022-03-20 23:07:27 INFO  LoginFormStepDefinition:73 THEN: Resultado = true Accounts Overview | Accounts Overview
+2022-03-20 23:07:28 INFO  ContactFormStepDefinition:157 SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su telefono
+2022-03-20 23:07:28 INFO  ContactFormStepDefinition:158 GIVEN: que el usuario desea enviar un mensaje Jose Martinez, jose.m@wetmail.com, holaMundo, Please block my account, 
+2022-03-20 23:07:29 INFO  RegisterFormStepDefinition:41 SCENARIO : El usuario ingresa en el sistema todos sus datos personales validos
+2022-03-20 23:07:29 INFO  RegisterFormStepDefinition:42 GIVEN: Se envia correctamente el usuario Latesha, Mann, 599 Norman Ports, Ziemeburgh, Iowa, 3010289107, 1048980638, 228145, Latesha.maya, 1234567
+2022-03-20 23:07:29 INFO  ContactFormStepDefinition:182 WHEN: Se reciben los datos de contacto del usuario
+2022-03-20 23:07:29 INFO  ContactFormStepDefinition:195 THEN: Resultado = false Thank you Jose Martinez A Customer Care Representative will be contacting you. | Thank you Jose Martinez A Customer Care Representative will be contacting you.
+2022-03-20 23:07:30 INFO  RegisterFormStepDefinition:73 WHEN: Se recibe el usuario
+2022-03-20 23:07:30 INFO  RegisterFormStepDefinition:86 THEN: Resultado = true [Welcome Latesha.maya, Your account was created successfully. You are now logged in.] | [Welcome Latesha.maya, Your account was created successfully. You are now logged in.]
+2022-03-20 23:07:31 INFO  ContactFormStepDefinition:214 SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su nombre
+2022-03-20 23:07:31 INFO  ContactFormStepDefinition:215 GIVEN: que el usuario desea enviar un mensaje _____, jose.m@wetmail.com, 3012905482, Please block my account, 
+2022-03-20 23:07:32 INFO  ContactFormStepDefinition:239 WHEN: Se reciben los datos de contacto del usuario
+2022-03-20 23:07:32 INFO  ContactFormStepDefinition:252 THEN: Resultado = false Thank you _____ A Customer Care Representative will be contacting you. | Thank you _____ A Customer Care Representative will be contacting you.
+2022-03-21 01:40:25 INFO  ContactFormStepDefinition:40 SCENARIO : El usuario ingresa en el sistema un nombre, telefono, email y mensaje validos
+2022-03-21 01:40:25 INFO  ContactFormStepDefinition:41 GIVEN: que el usuario desea enviar un mensaje Jose Martinez, jose.m@wetmail.com, 3012905482, Please block my account, 
+2022-03-21 01:40:26 INFO  ContactFormStepDefinition:66 WHEN: Se reciben los datos de contacto del usuario
+2022-03-21 01:40:26 INFO  ContactFormStepDefinition:79 THEN: Resultado = true Thank you Jose Martinez A Customer Care Representative will be contacting you. | Thank you Jose Martinez A Customer Care Representative will be contacting you.
+2022-03-21 01:40:27 INFO  ContactFormStepDefinition:100 SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su email
+2022-03-21 01:40:27 INFO  ContactFormStepDefinition:101 GIVEN: que el usuario desea enviar un mensaje Jose Martinez, jose.m, 3012905482, Please block my account, 
+2022-03-21 01:40:28 INFO  ContactFormStepDefinition:125 WHEN: Se reciben los datos de contacto del usuario
+2022-03-21 01:40:28 INFO  ContactFormStepDefinition:138 THEN: Resultado = false Thank you Jose Martinez A Customer Care Representative will be contacting you. | Thank you Jose Martinez A Customer Care Representative will be contacting you.
+2022-03-21 01:40:29 INFO  ContactFormStepDefinition:157 SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su telefono
+2022-03-21 01:40:29 INFO  ContactFormStepDefinition:158 GIVEN: que el usuario desea enviar un mensaje Jose Martinez, jose.m@wetmail.com, holaMundo, Please block my account, 
+2022-03-21 01:40:30 INFO  ContactFormStepDefinition:182 WHEN: Se reciben los datos de contacto del usuario
+2022-03-21 01:40:30 INFO  ContactFormStepDefinition:195 THEN: Resultado = false Thank you Jose Martinez A Customer Care Representative will be contacting you. | Thank you Jose Martinez A Customer Care Representative will be contacting you.
+2022-03-21 01:40:32 INFO  ContactFormStepDefinition:214 SCENARIO : que el usuario desea enviar un mensaje pero no desea ingresar su nombre
+2022-03-21 01:40:32 INFO  ContactFormStepDefinition:215 GIVEN: que el usuario desea enviar un mensaje _____, jose.m@wetmail.com, 3012905482, Please block my account, 
+2022-03-21 01:40:33 INFO  ContactFormStepDefinition:239 WHEN: Se reciben los datos de contacto del usuario
+2022-03-21 01:40:33 INFO  ContactFormStepDefinition:252 THEN: Resultado = false Thank you _____ A Customer Care Representative will be contacting you. | Thank you _____ A Customer Care Representative will be contacting you.
