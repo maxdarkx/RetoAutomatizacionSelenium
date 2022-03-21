@@ -75,9 +75,18 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra el mensaje de contacto")
     public void se_muestra_el_mensaje_de_contacto() {
-        String result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
-        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
-        Assertions.assertEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
+        String result;
+        if(isExplicitTime)
+        {
+            result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.withExplicitWaitIsContactFormDone()));
+            LOGGER.info("THEN: Resultado = " + result + " " + forContactSubmittedForm() + " | " + contactFormPage.withExplicitWaitIsContactFormDone());
+            Assertions.assertEquals(forContactSubmittedForm(), contactFormPage.withExplicitWaitIsContactFormDone());
+        }
+        else {
+            result = Boolean.toString(forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+            LOGGER.info("THEN: Resultado = " + result + " " + forContactSubmittedForm() + " | " + contactFormPage.isContactFormDone());
+            Assertions.assertEquals(forContactSubmittedForm(), contactFormPage.isContactFormDone());
+        }
         quitDriver();
     }
 
@@ -134,9 +143,20 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra un mensaje de error")
     public void se_muestra_un_mensaje_de_error() {
-        String result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
-        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
-        Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
+        String result;
+        if(isExplicitTime)
+        {
+            result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.withExplicitWaitIsContactFormDone()));
+            LOGGER.info("THEN: Resultado = " + result + " " + forContactSubmittedForm() + " | " + contactFormPage.withExplicitWaitIsContactFormDone());
+            Assertions.assertNotEquals(forContactSubmittedForm(), contactFormPage.withExplicitWaitIsContactFormDone());
+        }
+        else
+        {
+            result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+            LOGGER.info("THEN: Resultado = " + result + " " + forContactSubmittedForm() + " | " + contactFormPage.isContactFormDone());
+            Assertions.assertNotEquals(forContactSubmittedForm(), contactFormPage.isContactFormDone());
+        }
+
         quitDriver();
     }
 
@@ -191,9 +211,22 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra un mensaje indicando telefono erroneo")
     public void se_muestra_un_mensaje_indicando_telefono_erroneo() {
-        String result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
-        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
-        Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
+        String result;
+        if(isExplicitTime)
+        {
+            result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.withExplicitWaitIsContactFormDone()));
+            LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.withExplicitWaitIsContactFormDone());
+            Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.withExplicitWaitIsContactFormDone());
+        }
+        else
+        {
+            result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+            LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
+            Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
+        }
+
+
+
         quitDriver();
     }
 
@@ -248,9 +281,18 @@ public class ContactFormStepDefinition extends WebUI {
 
     @Then("se muestra un mensaje indicando nombre erroneo")
     public void se_muestra_un_mensaje_indicando_nombre_erroneo() {
-        String result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
-        LOGGER.info("THEN: Resultado = "+result+" "+forContactSubmittedForm()+" | "+contactFormPage.isContactFormDone());
-        Assertions.assertNotEquals(forContactSubmittedForm(),contactFormPage.isContactFormDone());
+        String result;
+        if (isExplicitTime)
+        {
+            result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.withExplicitWaitIsContactFormDone()));
+            LOGGER.info("THEN: Resultado = " + result + " " + forContactSubmittedForm() + " | " + contactFormPage.withExplicitWaitIsContactFormDone());
+            Assertions.assertNotEquals(forContactSubmittedForm(), contactFormPage.withExplicitWaitIsContactFormDone());
+        }
+        else {
+            result = Boolean.toString(!forContactSubmittedForm().equals(contactFormPage.isContactFormDone()));
+            LOGGER.info("THEN: Resultado = " + result + " " + forContactSubmittedForm() + " | " + contactFormPage.isContactFormDone());
+            Assertions.assertNotEquals(forContactSubmittedForm(), contactFormPage.isContactFormDone());
+        }
         quitDriver();
     }
 }

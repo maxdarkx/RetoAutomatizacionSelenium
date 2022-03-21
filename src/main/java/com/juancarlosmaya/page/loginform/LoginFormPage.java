@@ -34,6 +34,9 @@ public class LoginFormPage extends CommonActionOnPages {
     @FindBy(xpath = "//*[@id='rightPanel']/div/div/h1")
     private WebElement accountOverview;
 
+    @CacheLookup
+    @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
+    private WebElement errorPassword;
 
 
     public LoginFormPage(WebDriver driver, LoginFormModel loginFormModel) {
@@ -48,6 +51,7 @@ public class LoginFormPage extends CommonActionOnPages {
         this.loginFormModel = loginFormModel;
     }
 
+    //with implicit wait
     public void fillLoginFormModel() throws  InterruptedException
     {
         scrollOn(userName);
@@ -58,6 +62,19 @@ public class LoginFormPage extends CommonActionOnPages {
 
         doSubmit(logIn);
     }
+
+    public String isLoginFormDone()
+    {
+        return getText(accountOverview).trim();
+    }
+
+    public String isLoginFormError()
+    {
+        return getText(errorPassword).trim();
+    }
+    //
+
+    //with explicit wait
 
     public void withExplicitWaitFillLoginFormModel() throws InterruptedException
     {
@@ -70,8 +87,16 @@ public class LoginFormPage extends CommonActionOnPages {
         withExplicitWaitDoSubmit(logIn);
     }
 
-    public String isLoginFormDone()
+    public String withExplicitWaitIsLoginFormDone()
     {
-        return getText(accountOverview).trim();
+        return withExplicitWaitGetText(accountOverview).trim();
     }
+
+    public String withExplicitWaitIsLoginFormError()
+    {
+        return withExplicitWaitGetText(errorPassword).trim();
+    }
+    //
+
+
 }

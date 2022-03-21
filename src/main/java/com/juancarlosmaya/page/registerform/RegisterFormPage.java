@@ -82,6 +82,9 @@ public class RegisterFormPage extends CommonActionOnPages {
     @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
     private WebElement welcomeMessage;
 
+    @CacheLookup
+    @FindBy(xpath = "//*[@id=\"customer.firstName.errors\"]")
+    private WebElement errorName;
 
     public RegisterFormPage(WebDriver driver, RegisterFormModel registerFormModel) {
         super(driver);
@@ -185,6 +188,24 @@ public class RegisterFormPage extends CommonActionOnPages {
         submittedRegisterResult.add(getText(welcomeUser).trim());
         submittedRegisterResult.add(getText(welcomeMessage).trim());
         return submittedRegisterResult;
+    }
+
+    public List<String> withExplicitWaitIsRegisterFormDone()
+    {
+        List <String> submittedRegisterResult = new ArrayList <String>();
+        submittedRegisterResult.add(withExplicitWaitGetText(welcomeUser).trim());
+        submittedRegisterResult.add(withExplicitWaitGetText(welcomeMessage).trim());
+        return submittedRegisterResult;
+    }
+
+    public String isRegisterFormErrorNamePresent()
+    {
+        return getText(errorName).trim();
+    }
+
+    public String withExplicitWaitIsRegisterFormErrorNamePresent()
+    {
+        return withExplicitWaitGetText(errorName).trim();
     }
 
 }

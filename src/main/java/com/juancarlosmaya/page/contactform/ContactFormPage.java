@@ -60,12 +60,13 @@ public class ContactFormPage extends CommonActionOnPages {
         this.contactFormModel = contactFormModel;
     }
 
-    public ContactFormPage(WebDriver driver, int seconds, boolean explicitTime, ContactFormModel contactFormModel) {
+    public  ContactFormPage(WebDriver driver, int seconds, boolean explicitTime, ContactFormModel contactFormModel) {
         super(driver, seconds, explicitTime);
         pageFactoryInitElement(driver, this);
         this.contactFormModel = contactFormModel;
     }
 
+    //implicit wait
     public void fillContactFormModel() throws InterruptedException
     {
         scrollOn(contactUs);
@@ -86,6 +87,16 @@ public class ContactFormPage extends CommonActionOnPages {
         doSubmit(submit);
     }
 
+    public String isContactFormDone(){
+        String submittedContactResult = getText(returnCustomer).trim()+" ";
+        submittedContactResult = submittedContactResult.concat(getText(returnMessage).trim());
+        return submittedContactResult;
+    }
+
+    //
+
+
+    //explicit wait
     public void withExplicitWaitFillContactFormModel() throws InterruptedException
     {
         withExplicitWaitScrollOn(contactUs);
@@ -107,11 +118,11 @@ public class ContactFormPage extends CommonActionOnPages {
     }
 
 
-
-    public String isContactFormDone(){
-        String submittedContactResult = getText(returnCustomer).trim()+" ";
-        submittedContactResult = submittedContactResult.concat(getText(returnMessage).trim());
+    public String withExplicitWaitIsContactFormDone(){
+        String submittedContactResult = withExplicitWaitGetText(returnCustomer).trim()+" ";
+        submittedContactResult = submittedContactResult.concat(withExplicitWaitGetText(returnMessage).trim());
         return submittedContactResult;
     }
+    //
 }
 

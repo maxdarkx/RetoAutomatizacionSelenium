@@ -9,3 +9,8 @@ Feature: Registro de usuario
     When el usuario ingresa en la plataforma su nombre, su apellido, su direccion, su ciudad de residencia, su Departamento su codigo zip, su numero de telefono, su identificacion y un nombre de usuario y contrasena
     Then se creara un nombre de usuario valido para que el usuario utilice la plataforma
 
+  @Regresion
+  Scenario: El usuario ingresa en el sistema sus datos personales validos, excepto su nombre
+    Given que el usuario desea ingresar a la plataforma sin ingresar su nombre
+    When el usuario ingresa en la plataforma su apellido, su direccion, su ciudad de residencia, su Departamento su codigo zip, su numero de telefono, su identificacion y un nombre de usuario y contrasena
+    Then se mostrara en pantalla un mensaje de error
