@@ -87,6 +87,28 @@ public class ContactFormPage extends CommonActionOnPages {
         doSubmit(submit);
     }
 
+    public void withExplicitWaitFillContactFormModel() throws InterruptedException
+    {
+        withExplicitWaitScrollOn(contactUs);
+        withExplicitWaitClickOn(contactUs);
+
+        withExplicitWaitScrollOn(name);
+        withExplicitWaitTypeOn(name, contactFormModel.getName());
+
+        withExplicitWaitScrollOn(email);
+        withExplicitWaitTypeOn(email, contactFormModel.getEmail());
+
+        withExplicitWaitScrollOn(phone);
+        withExplicitWaitTypeOn(phone, contactFormModel.getPhone());
+
+        withExplicitWaitScrollOn(message);
+        withExplicitWaitTypeOn(message, contactFormModel.getMessage());
+
+        doSubmit(submit);
+    }
+
+
+
     public String isContactFormDone(){
         String submittedContactResult = getText(returnCustomer).trim()+" ";
         submittedContactResult = submittedContactResult.concat(getText(returnMessage).trim());

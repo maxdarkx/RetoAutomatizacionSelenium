@@ -33,4 +33,9 @@ public class WebUI {
     protected void quitDriver(){
         driver.quit();
     }
+
+    protected void closeDriver()
+    {
+        driver.close();
+    }
 }

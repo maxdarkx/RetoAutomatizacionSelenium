@@ -9,15 +9,13 @@ import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class ContactFormStepDefinition extends WebUI {
 
     private static final Logger LOGGER = Logger.getLogger(ContactFormStepDefinition.class);
     private ContactFormModel contactFormModel;
     private ContactFormPage contactFormPage;
+    private Boolean isExplicitTime = true;
+    private int explicitTime = 10;
 
     private String forContactSubmittedForm(){
         String submitedFormResult = "Thank you "+contactFormModel.getName()+" ";
@@ -57,8 +55,14 @@ public class ContactFormStepDefinition extends WebUI {
     @When("el usuario ingresa en la plataforma un nombre, telefono, email y mensaje validos")
     public void el_usuario_ingresa_en_la_plataforma_un_nombre_telefono_email_y_mensaje_validos() {
         try {
-            contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
-            contactFormPage.fillContactFormModel();
+            contactFormPage = new ContactFormPage(driver,explicitTime,isExplicitTime,contactFormModel);
+            if(isExplicitTime)
+            {
+                contactFormPage.withExplicitWaitFillContactFormModel();
+            }
+            else {
+                contactFormPage.fillContactFormModel();
+            }
             LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
@@ -110,8 +114,14 @@ public class ContactFormStepDefinition extends WebUI {
     @When("el usuario ingresa en la plataforma un nombre, telefono y mensaje validos, y un email invalido")
     public void el_usuario_ingresa_en_la_plataforma_un_nombre_telefono_y_mensaje_validos_y_un_email_invalido() {
         try {
-            contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
-            contactFormPage.fillContactFormModel();
+            contactFormPage = new ContactFormPage(driver,explicitTime,isExplicitTime,contactFormModel);
+            if(isExplicitTime)
+            {
+                contactFormPage.withExplicitWaitFillContactFormModel();
+            }
+            else {
+                contactFormPage.fillContactFormModel();
+            }
             LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
@@ -161,8 +171,14 @@ public class ContactFormStepDefinition extends WebUI {
     @When("el usuario ingresa en la plataforma un nombre, email y mensaje validos, y un telefono invalido")
     public void el_usuario_ingresa_en_la_plataforma_un_nombre_email_y_mensaje_validos_y_un_telefono_invalido() {
         try {
-            contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
-            contactFormPage.fillContactFormModel();
+            contactFormPage = new ContactFormPage(driver,explicitTime,isExplicitTime,contactFormModel);
+            if(isExplicitTime)
+            {
+                contactFormPage.withExplicitWaitFillContactFormModel();
+            }
+            else {
+                contactFormPage.fillContactFormModel();
+            }
             LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)
@@ -212,8 +228,14 @@ public class ContactFormStepDefinition extends WebUI {
     @When("el usuario ingresa en la plataforma un telefono, email y mensaje validos, y un nombre invalido")
     public void el_usuario_ingresa_en_la_plataforma_un_telefono_email_y_mensaje_validos_y_un_nombre_invalido() {
         try {
-            contactFormPage = new ContactFormPage(driver,10,true,contactFormModel);
-            contactFormPage.fillContactFormModel();
+            contactFormPage = new ContactFormPage(driver,explicitTime,isExplicitTime,contactFormModel);
+            if(isExplicitTime)
+            {
+                contactFormPage.withExplicitWaitFillContactFormModel();
+            }
+            else {
+                contactFormPage.fillContactFormModel();
+            }
             LOGGER.info("WHEN: Se reciben los datos de contacto del usuario");
         }
         catch (Exception e)

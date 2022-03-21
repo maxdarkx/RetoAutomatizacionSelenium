@@ -98,43 +98,85 @@ public class RegisterFormPage extends CommonActionOnPages {
     public void fillRegisterFormModel() throws InterruptedException
     {
         //move to the register page
-        scrollOn(registerLinkPage);
+        withExplicitWaitScrollOn(registerLinkPage);
         clickOn(registerLinkPage);
 
-        scrollOn(firstName);
+        withExplicitWaitScrollOn(firstName);
         typeOn(firstName, registerFormModel.getFirstName());
 
-        scrollOn(lastName);
+        withExplicitWaitScrollOn(lastName);
         typeOn(lastName, registerFormModel.getLastName());
 
-        scrollOn(address);
+        withExplicitWaitScrollOn(address);
         typeOn(address, registerFormModel.getAddress());
 
-        scrollOn(city);
+        withExplicitWaitScrollOn(city);
         typeOn(city, registerFormModel.getCity());
 
-        scrollOn(state);
+        withExplicitWaitScrollOn(state);
         typeOn(state, registerFormModel.getState());
 
-        scrollOn(zipCode);
+        withExplicitWaitScrollOn(zipCode);
         typeOn(zipCode, registerFormModel.getZip());
 
-        scrollOn(phone);
+        withExplicitWaitScrollOn(phone);
         typeOn(phone, registerFormModel.getPhone());
 
-        scrollOn(ssn);
+        withExplicitWaitScrollOn(ssn);
         typeOn(ssn, registerFormModel.getSsn());
 
-        scrollOn(userName);
+        withExplicitWaitScrollOn(userName);
         typeOn(userName, registerFormModel.getUser());
 
-        scrollOn(password);
+        withExplicitWaitScrollOn(password);
         typeOn(password, registerFormModel.getPassword());
 
-        scrollOn(repeatedPassword);
+        withExplicitWaitScrollOn(repeatedPassword);
         typeOn(repeatedPassword, registerFormModel.getPassword());
 
         doSubmit(register);
+    }
+
+    public void withExplicitWaitFillRegisterFormModel() throws InterruptedException
+    {
+        //move to the register page
+        withExplicitWaitScrollOn(registerLinkPage);
+        withExplicitWaitClickOn(registerLinkPage);
+
+        withExplicitWaitScrollOn(firstName);
+        withExplicitWaitTypeOn(firstName, registerFormModel.getFirstName());
+
+        withExplicitWaitScrollOn(lastName);
+        withExplicitWaitTypeOn(lastName, registerFormModel.getLastName());
+
+        withExplicitWaitScrollOn(address);
+        withExplicitWaitTypeOn(address, registerFormModel.getAddress());
+
+        withExplicitWaitScrollOn(city);
+        withExplicitWaitTypeOn(city, registerFormModel.getCity());
+
+        withExplicitWaitScrollOn(state);
+        withExplicitWaitTypeOn(state, registerFormModel.getState());
+
+        withExplicitWaitScrollOn(zipCode);
+        withExplicitWaitTypeOn(zipCode, registerFormModel.getZip());
+
+        withExplicitWaitScrollOn(phone);
+        withExplicitWaitTypeOn(phone, registerFormModel.getPhone());
+
+        withExplicitWaitScrollOn(ssn);
+        withExplicitWaitTypeOn(ssn, registerFormModel.getSsn());
+
+        withExplicitWaitScrollOn(userName);
+        withExplicitWaitTypeOn(userName, registerFormModel.getUser());
+
+        withExplicitWaitScrollOn(password);
+        withExplicitWaitTypeOn(password, registerFormModel.getPassword());
+
+        withExplicitWaitScrollOn(repeatedPassword);
+        withExplicitWaitTypeOn(repeatedPassword, registerFormModel.getPassword());
+
+        withExplicitWaitDoSubmit(register);
     }
 
     public List<String> isRegisterFormDone()

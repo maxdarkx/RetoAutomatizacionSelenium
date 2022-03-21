@@ -79,12 +79,12 @@ public class CommonActionOnPages extends BaseSikulix{
         driver.findElement(locator).clear();
     }
 
-    protected void withExplicitWaitClearOn(By locator){
-        webDriverExplicitWait.until(elementToBeClickable(locator)).clear();
-    }
-
     protected void clearOn(WebElement webElement){
         webElement.clear();
+    }
+
+    protected void withExplicitWaitClearOn(By locator){
+        webDriverExplicitWait.until(elementToBeClickable(locator)).clear();
     }
 
     protected void withExplicitWaitClearOn(WebElement webElement){
@@ -101,6 +101,11 @@ public class CommonActionOnPages extends BaseSikulix{
         webElement.click();
     }
 
+    protected void withExplicitWaitClickOn(WebElement webElement)
+    {
+        webDriverExplicitWait.until(elementToBeClickable(webElement)).click();
+    }
+
     //
 
     protected void typeOn(By locator, CharSequence... keysToSend){
@@ -109,6 +114,11 @@ public class CommonActionOnPages extends BaseSikulix{
 
     protected void typeOn(WebElement webElement, CharSequence... keysToSend){
         webElement.sendKeys(keysToSend);
+    }
+
+    protected  void withExplicitWaitTypeOn(WebElement webElement, CharSequence... keystoSend)
+    {
+        webDriverExplicitWait.until(elementToBeClickable(webElement)).sendKeys(keystoSend);
     }
 
     //
@@ -123,6 +133,11 @@ public class CommonActionOnPages extends BaseSikulix{
         jse.executeScript("arguments[0].scrollIntoView();", webElement);
     }
 
+    protected void withExplicitWaitScrollOn(WebElement webElement)
+    {
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].scrollIntoView();", webElement);
+    }
     //
 
     protected void doSubmit(By locator){
@@ -131,6 +146,11 @@ public class CommonActionOnPages extends BaseSikulix{
 
     protected void doSubmit(WebElement webElement){
         webElement.submit();
+    }
+
+    protected void withExplicitWaitDoSubmit(WebElement webElement)
+    {
+        webDriverExplicitWait.until(elementToBeClickable(webElement)).submit();
     }
 
     //
@@ -143,4 +163,8 @@ public class CommonActionOnPages extends BaseSikulix{
         return webElement.getText();
     }
 
+    protected String withExplicitWaitGetText(WebElement webElement)
+    {
+        return webDriverExplicitWait.until(elementToBeClickable(webElement)).getText();
+    }
 }

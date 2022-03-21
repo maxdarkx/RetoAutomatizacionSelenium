@@ -31,10 +31,6 @@ public class LoginFormPage extends CommonActionOnPages {
     private WebElement logIn;
 
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\'leftPanel\']/ul/li[8]/a")
-    private WebElement logOut;
-
-    @CacheLookup
     @FindBy(xpath = "//*[@id='rightPanel']/div/div/h1")
     private WebElement accountOverview;
 
@@ -61,14 +57,17 @@ public class LoginFormPage extends CommonActionOnPages {
         typeOn(password, loginFormModel.getPassword());
 
         doSubmit(logIn);
-
-        scrollOn(logOut);
-
-
     }
-    public void logOutFormModel() throws InterruptedException
+
+    public void withExplicitWaitFillLoginFormModel() throws InterruptedException
     {
-        clickOn(logOut);
+        withExplicitWaitScrollOn(userName);
+        withExplicitWaitTypeOn(userName, loginFormModel.getLogin());
+
+        withExplicitWaitScrollOn(password);
+        withExplicitWaitTypeOn(password, loginFormModel.getPassword());
+
+        withExplicitWaitDoSubmit(logIn);
     }
 
     public String isLoginFormDone()

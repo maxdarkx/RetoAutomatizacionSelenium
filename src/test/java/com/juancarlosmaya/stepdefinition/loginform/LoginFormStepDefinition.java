@@ -1,9 +1,7 @@
 package com.juancarlosmaya.stepdefinition.loginform;
 
 import com.github.javafaker.Faker;
-import com.juancarlosmaya.model.contactform.ContactFormModel;
 import com.juancarlosmaya.model.loginform.LoginFormModel;
-import com.juancarlosmaya.page.contactform.ContactFormPage;
 import com.juancarlosmaya.page.loginform.LoginFormPage;
 import com.juancarlosmaya.stepdefinition.setup.WebUI;
 import io.cucumber.java.en.Given;
@@ -22,6 +20,8 @@ public class LoginFormStepDefinition extends WebUI {
         return "Accounts Overview";
     }
 
+    private Boolean isExplicitTime = true;
+
     @Given("que el usuario desea ingresar a su cuenta")
     public void que_el_usuario_desea_ingresar_a_su_cuenta() {
         try {
@@ -31,8 +31,8 @@ public class LoginFormStepDefinition extends WebUI {
             generalSetUp();
 
             loginFormModel = new LoginFormModel();
-            loginFormModel.setLogin(faker.name().username());
-            loginFormModel.setPassword(faker.internet().password());
+            loginFormModel.setLogin("juan.maya");
+            loginFormModel.setPassword("LZ4@3KfULcLFpss");
             LOGGER.info ("SCENARIO : El usuario ingresa en el sistema un nombre de usuario y contrasena validos");
             LOGGER.info("GIVEN: que el usuario desea ingresar a su cuenta "+
                     loginFormModel.getLogin()+", "+
@@ -49,8 +49,13 @@ public class LoginFormStepDefinition extends WebUI {
     @When("el usuario ingresa en la plataforma un nombre de usuario y contrasena validos")
     public void el_usuario_ingresa_en_la_plataforma_un_nombre_de_usuario_y_contrasena_validos() {
         try {
-            loginFormPage = new LoginFormPage(driver,10,true,loginFormModel);
-            loginFormPage.fillLoginFormModel();
+            loginFormPage = new LoginFormPage(driver,10,isExplicitTime,loginFormModel);
+            if(isExplicitTime) {
+                loginFormPage.withExplicitWaitFillLoginFormModel();
+            }
+            else {
+                loginFormPage.fillLoginFormModel();
+            }
             LOGGER.info("WHEN: el usuario ingresa en la plataforma un nombre de usuario y contrasena validos");
         }
         catch (Exception e)
@@ -64,18 +69,9 @@ public class LoginFormStepDefinition extends WebUI {
 
     @Then("se muestra el resumen de la cuenta")
     public void se_muestra_el_resumen_de_la_cuenta() {
-        try {
-            String result = Boolean.toString(forLoginSumittedForm().equals(loginFormPage.isLoginFormDone()));
-            LOGGER.info("THEN: Resultado = " + result + " " + forLoginSumittedForm() + " | " + loginFormPage.isLoginFormDone());
-            Assertions.assertEquals(forLoginSumittedForm(), loginFormPage.isLoginFormDone());
-            loginFormPage.logOutFormModel();
-            quitDriver();
-        }
-        catch (Exception e)
-        {
-            quitDriver();
-            Assertions.fail(e.getMessage(), e);
-            LOGGER.error(e.getMessage(),e);
-        }
+        String result = Boolean.toString(forLoginSumittedForm().equals(loginFormPage.isLoginFormDone()));
+        LOGGER.info("THEN: Resultado = " + result + " " + forLoginSumittedForm() + " | " + loginFormPage.isLoginFormDone());
+        Assertions.assertEquals(forLoginSumittedForm(), loginFormPage.isLoginFormDone());
+        quitDriver();
     }
 }
