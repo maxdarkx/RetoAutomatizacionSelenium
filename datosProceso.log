@@ -30,3 +30,11 @@
 2022-03-21 16:25:29 INFO  RegisterFormStepDefinition:135 GIVEN: Se envia correctamente el usuario sin su nombre Reagan, Schneider, 215 Parisian Parks, Lake Gayleside, Tennessee, 3016271550, 1017734542, 493902, Reagan.maya, 1234567
 2022-03-21 16:25:31 INFO  RegisterFormStepDefinition:165 WHEN: Se recibe el usuario
 2022-03-21 16:25:31 INFO  RegisterFormStepDefinition:180 THEN: Resultado = true First name is required. | First name is required.
+2022-03-21 17:14:33 INFO  RegisterFormStepDefinition:56 SCENARIO : El usuario ingresa en el sistema todos sus datos personales validos
+2022-03-21 17:14:33 INFO  RegisterFormStepDefinition:57 GIVEN: Se envia correctamente el usuario Kory, Breitenberg, 2237 Rolf Glen, South Birgit, Oklahoma, 3015210146, 1027112957, 774244, Kory.maya, 1234567
+2022-03-21 17:14:35 INFO  RegisterFormStepDefinition:88 WHEN: Se recibe el usuario
+2022-03-21 17:14:35 INFO  RegisterFormStepDefinition:104 THEN: Resultado = true [Welcome Kory.maya, Your account was created successfully. You are now logged in.] | [Welcome Kory.maya, Your account was created successfully. You are now logged in.]
+2022-03-21 17:14:37 INFO  RegisterFormStepDefinition:134 SCENARIO : El usuario ingresa en el sistema sus datos personales validos, excepto su nombre
+2022-03-21 17:14:37 INFO  RegisterFormStepDefinition:135 GIVEN: Se envia correctamente el usuario sin su nombre Landon, Rodriguez, 397 Marquardt Estates, Donnellytown, Nebraska, 3014769483, 1004797783, 746924, Landon.maya, 1234567
+2022-03-21 17:14:38 INFO  RegisterFormStepDefinition:165 WHEN: Se recibe el usuario
+2022-03-21 17:14:38 INFO  RegisterFormStepDefinition:180 THEN: Resultado = true First name is required. | First name is required.

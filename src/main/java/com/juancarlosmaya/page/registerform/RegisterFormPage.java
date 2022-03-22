@@ -74,16 +74,16 @@ public class RegisterFormPage extends CommonActionOnPages {
 
     //Welcome "userName"
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\"rightPanel\"]/h1")
+    @FindBy(xpath = "//*[@id=\'rightPanel\']/h1")
     private WebElement welcomeUser;
 
     //Your account was created successfully. You are now logged in.
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\"rightPanel\"]/p")
+    @FindBy(xpath = "//*[@id=\'rightPanel\']/p")
     private WebElement welcomeMessage;
 
     @CacheLookup
-    @FindBy(xpath = "//*[@id=\"customer.firstName.errors\"]")
+    @FindBy(xpath = "//*[@id=\'customer.firstName.errors\']")
     private WebElement errorName;
 
     public RegisterFormPage(WebDriver driver, RegisterFormModel registerFormModel) {
